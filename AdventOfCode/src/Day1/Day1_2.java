@@ -12,7 +12,7 @@ public class Day1_2 {
 	 public static void main (String [] args) throws FileNotFoundException {
 		 //count each elves's total calories
 		 //blank line delimter
-		 File input = new File("C:\\AdventOfCode2022\\AdventOfCode2022\\AdventOfCode\\src\\Day1\\input.txt");
+		 File input = new File("yourpath\\input.txt");
 		 Scanner sc = new Scanner(input);
 		 int total = 0;
 		 ArrayList<Integer> totalCaloriesPerElf = new ArrayList<>();
