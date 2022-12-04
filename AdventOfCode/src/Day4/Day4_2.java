@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Day4 {
+public class Day4_2 {
 	 public static class Pair{
 		private int x;
 		private int y;
@@ -30,36 +30,35 @@ public class Day4 {
 		while(sc.hasNextLine()) {
 			String s = sc.nextLine();
 			String commas[] = s.split(",");
-//			System.out.println("Original Line: " + Arrays.toString(commas));
+			System.out.println("Original Line: " + Arrays.toString(commas));
 			
 			ArrayList<Pair> pairsList = new ArrayList<>();
 			
 			for(String c: commas) {
 				String pairs[] = c.split("-");
-//				System.out.println(Arrays.toString(pairs));
 				pairsList.add(new Pair(Integer.parseInt(pairs[0]), Integer.parseInt(pairs[1])));
 			}
-//			for(Pair p : pairsList) {
-//				System.out.println("A pair is: (" + p.getX() + "," + p.getY() + ")");
-//			}
-//			System.out.println();
 			
-			//now check if either range of pairs completely contains the other 
-			if(win(pairsList.get(0), pairsList.get(1)))
+			//now check if the two pairs overlap at all
+			if(win(pairsList.get(0), pairsList.get(1))) 
 				count++;
+			
 		}
 		System.out.println(count);
 	}
+	
 	//"winning conditions"
-	//p1_x < p2_x && p1_y > p2_y //Pair1 fully contains Pair2
-	//p2_x < p1_x && p2_y > p1_y //Pair2 fully contains Pair1
+	//if (p2x is in p1 range) at all, then they overlap 
+	//if (p1x is in p2 range) at all, then they overlap 
+	//I don't think I need to test for py since I think all of the data is ordered ascending
 	//otherwise ignore 
 	public static boolean win(Pair one, Pair two) {
-		if(one.getX() <= two.getX() && one.getY() >= two.getY())
+		if (two.getX() >= one.getX() && two.getX() <= one.getY()) 
 			return true;
-		else if(two.getX() <= one.getX() && two.getY() >= one.getY()) 
+		else if(one.getX() >= two.getX() && one.getX() <= two.getY()) 
 			return true;
 		else 
 			return false;
+		
 	}
 }
