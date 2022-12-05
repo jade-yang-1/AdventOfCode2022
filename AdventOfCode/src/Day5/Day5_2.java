@@ -57,7 +57,7 @@ public class Day5_2 {
 		sc.nextLine(); //walk over the blank line 
 		
 //		System.out.println("\nBeginning of moves: ");
-		//parse moves 
+		//parse moves and do them 
 		while(sc.hasNextLine()) {
 			String s = sc.nextLine();
 			parseMove(s);
@@ -80,11 +80,13 @@ public class Day5_2 {
 	}
 	public static void doMove(int n, int o, int t) {
 		List<String> h = new ArrayList<String>();
+		//get a list of the crates to move 
 		for(int i = 0; i < n; i++){
 			if(li.get(o-1).size() == 0) break;	//catch for empty stack when testing 
 			h.add(li.get(o-1).removeLast());
 //			System.out.println("h is: " + h.toString());
 		}
+		//move the crates in reverse order of the list 
 		for(int i=h.size()-1; i>=0; i--) {
 			li.get(t-1).add(h.get(i));
 		}

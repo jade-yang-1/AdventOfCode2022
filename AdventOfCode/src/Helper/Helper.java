@@ -87,5 +87,23 @@ public final class Helper {
 			if(max <= x) max = x;
 		return max;
 	}
+	public static boolean isInteger(String s) {
+		try {
+            Integer.parseInt(s);
+            return true;
+        }
+        catch (NumberFormatException e) {
+            return false;
+        }
+	}
+	public static boolean isInteger(char c) {
+		try {
+            Integer.parseInt(c + "");
+            return true;
+        }
+        catch (NumberFormatException e) {
+            return false;
+        }
+	}
 	
 }
