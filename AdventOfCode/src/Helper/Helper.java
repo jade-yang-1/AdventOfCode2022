@@ -66,6 +66,7 @@ public final class Helper {
 		}
 		return ret;
 	}
+	
 	/**
 	 * Get the max int from an arraylist 
 	 * @param a an arraylist of integers 
